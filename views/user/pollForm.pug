@@ -1,0 +1,33 @@
+extends ../base
+
+block content
+    if (user)
+        main.main
+            form.form.form--poll
+                .form-container
+                    h2.heading-secondary.ma-bt-md Create A New Poll
+                    form.form.form--poll-data(action='/create-poll' method="POST")
+                        .form__group
+                            label.form__label(for='poll--topic') Topic
+                            input#poll--topic.form__input(type='text', placeholder='Enter question', required)
+                        .form__group
+                            label.form__label(for='poll--answer1') Answer 1
+                            input#poll--answer1.form__input(type='text', placeholder='Enter answer', required)
+                        .form__group
+                            label.form__label(for='poll--answer2') Answer 2
+                            input#poll--answer2.form__input(type='text', placeholder='Enter answer', required)
+                        .form__group
+                            label.form__label(for='poll--answer3') Answer 3
+                            input#poll--answer3.form__input(type='text', placeholder='Enter answer')
+                        .form__group
+                            label.form__label(for='poll--answer4') Answer 4
+                            input#poll--answer4.form__input(type='text', placeholder='Enter answer')
+                        .form__group
+                            label.form__label(for='poll--answer5') Answer 5
+                            input#poll--answer5.form__input(type='text', placeholder='Enter answer')
+                        .form__group.right
+                            button.btn.btn--small.btn--green.btn--save-password Create Poll
+
+    else 
+        include ./../inclusions/_loginSignup
+        

@@ -1,0 +1,41 @@
+extends ../base
+
+block content 
+    .poll_container.poll.polls(id=`poll` data-id=`${poll.id}`)
+        a#link--polls(href="/") Back to Polls 
+        h2.poll_header #{poll.topic}
+        .row    
+            .poll_answers#poll-answers
+                .poll_answer
+                    .row
+                        button.poll_answer--button#vote-1(action="/increase-vote1") Vote
+                        p.poll_answer--text=`${poll.answers[0].answer}: `
+                        p.poll_answer--vote(id=`vote-text-${poll.answers[0].answer}`) #{poll.answers[0].votes}
+                        //- canvas(style="background-color: blue; height: 20px; margin: auto auto;" width=`400`)
+                .poll_answer
+                    .row
+                        button.poll_answer--button#vote-2(action="/increase-vote2") Vote
+                        p.poll_answer--text= `${poll.answers[1].answer}: `
+                        p.poll_answer--vote(id=`vote-text-${poll.answers[1].answer}`) #{poll.answers[1].votes}
+                        //- canvas(style="background-color: blue; height: 20px; margin: auto auto;" width=`400`)
+                if (poll.answers[2])
+                    .poll_answer
+                        .row
+                            button.poll_answer--button#vote-3(action="/increase-vote3") Vote
+                            p.poll_answer--text= `${poll.answers[2].answer}: `
+                            p.poll_answer--vote(id=`vote-text-${poll.answers[2].answer}`) #{poll.answers[2].votes}
+                            //- canvas(style="background-color: blue; height: 20px; margin: auto auto;" width=`400`)
+                if (poll.answers[3])
+                    .poll_answer
+                        .row
+                            button.poll_answer--button#vote-4(action="/increase-vote4") Vote
+                            p.poll_answer--text= `${poll.answers[3].answer}: `
+                            p.poll_answer--vote(id=`vote-text-${poll.answers[3].answer}`) #{poll.answers[3].votes}
+                            //- canvas(style="background-color: blue; height: 20px; margin: auto auto;" width=`400`)
+                if (poll.answers[4])
+                    .poll_answer
+                        .row
+                            button.poll_answer--button#vote-5(action="/increase-vote5") Vote
+                            p.poll_answer--text= `${poll.answers[4].answer}: `
+                            p.poll_answer--vote(id=`vote-text-${poll.answers[4].answer}`) #{poll.answers[4].votes}
+                            //- canvas(style="background-color: blue; height: 20px; margin: auto auto;" width=`400`)

@@ -1,0 +1,25 @@
+header.header
+
+    .header__logo
+        include ./_logo
+        
+    nav.nav
+        ul.row 
+            li: a.nav__el(href='/') Home
+            li: a.nav__el(href="/createPoll") Create Poll 
+            li: a.nav__el(href="/polls") View Polls 
+            li: a.nav__el(href="/powerplant") Power Plant
+            li: a.nav__el(href="/introduction") About 
+             
+             
+        
+    nav.nav.nav--user
+        ul.row 
+            if user
+                li: a.nav__el.nav__el--logout(href='#') Log Out
+                li: a.nav__el(href='/me') 
+                    img.circle.nav__user-img(src=`/img/users/${user.photo}`, alt=`${user.name} Photo`)
+                    span= user.name.split(' ')[0]
+            else
+                li: a.nav__el.nav__el--cta(href="/login") Login
+                li: a.nav__el.nav__el--cta(href='/signup') Sign Up

@@ -1,0 +1,28 @@
+extends base
+
+mixin pollCard(poll)
+    li.poll_container--list.column
+        a(href=`/polls/${poll.id}` id=`poll-${poll.id}`).poll_container--link.poll
+            .row 
+                img.circle.poll__img-creator(src=`img/users/${poll.createdBy.photo}`)
+                .column.poll__container--topic
+                    h3 #{poll.topic}
+                    p.poll_container--creator Asked by: #{poll.createdBy.name}
+            //- p.end(id=`poll-${poll.id}--highest-vote`)= `Highest Vote: ${ poll.highestVote.answer} with ${poll.highestVote.votes} votes`
+            p.end(id=`poll-${poll.id}--highest-vote`)= poll.highestVote
+
+block content 
+    main.main 
+    if (user)
+        if (polls.length > 0) 
+            h2 Polls
+            ul
+                each poll in polls 
+                    +pollCard(poll)
+
+        else 
+            h2.center Please Create A Poll 
+            a(href="/polls") Create A Poll
+
+    else 
+        include ./inclusions/_loginSignup

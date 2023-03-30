@@ -1,0 +1,52 @@
+extends base
+
+
+mixin buildingCard(name, img, houses)
+        .building.card__building(data-watts=`${houses * 1223}`)
+            h3 #{name} 
+            img.card__building--img(src=`${img}`)
+            .main__section--btn
+                p.card__building--p Watt Usage: 
+                    span #{houses*1223} 
+                p Houses:
+                    span #{houses}
+                .row
+                    button.btn--subtract.btn--small -
+                    button.btn--add.btn--small +
+
+block content
+    main.main
+        h2 Power Plant
+        p.main__text Team Galaxy is building a new power plant in Jubilife Village and they need a power source. With the help of Professor Laventon, they decide that Voltorb is the best option. Voltorb's natural electricity generation is far superior to other methods of production that suffer from energy conversion loss.
+        p.main__text The average generator produces around 6500 watts of electricity. Around 60% of the energy is lost in conversion meaning that roughly 9750 watts is wasted.
+        p.main__text Voltorb, however, can convert around 80% of his energy into electricity allowing it to produce 13000 watts of power consistently.
+        p.main__text The average house consumes 1223 watts to power. In order to estimate the total watt usage of the buildings in Jubilife Village, The estimated watt usage of each building will be relative to how many houses worth of watts the building uses.
+        p.main__text How many Voltorb are needed to power Jubilife Village?
+        .main__section
+            h3.section__header Voltorbs
+
+            .main__section.row.main__section--voltorb 
+                img#img--voltorb(src="/img/pokemon/voltorb.png")
+                .comlumn
+                    h3.main__section--text Voltorb Needed:
+                        span#voltorb--count
+                    h3.main__section--text Total Watts Used: 
+                        span#total-watts--count
+                    h3.main__section--text Excess Watts Produced: 
+                        span#excess-watts--count
+
+            h3.section__header Buildings
+
+            .cards
+                +buildingCard('Galaxy Hall', '/img/buildings/galaxy-hall.jpg', 16)
+                +buildingCard('Clothier', '/img/buildings/clothier.jpg', 4)
+                +buildingCard('Craft Works', '/img/buildings/craft-works.jpg', 4)
+                +buildingCard('General Store', '/img/buildings/general-store.jpg', 4)
+                +buildingCard('Hairdresser', '/img/buildings/hairdresser.jpg', 2)
+                +buildingCard('Photo Studio', '/img/buildings/photo-studio.jpg', 2)
+                +buildingCard('The Wall Flower', '/img/buildings/the-wall-flower.png', 4)
+                +buildingCard('Training Grounds', '/img/buildings/training-grounds.png', 6)
+                +buildingCard('Houses', '/img/buildings/houses.jpg', 9)
+
+
+
